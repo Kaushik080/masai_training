@@ -12,7 +12,7 @@ public class Customer {
     private String password;
     private LocalDate dateOfBirth;
 
-    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
     private static final String MOBILE_REGEX = "^[6-9]\\d{9}$";
 
     public Customer() {
@@ -21,8 +21,8 @@ public class Customer {
     public Customer(String customerID, String name, String phone, String email, String password, LocalDate dateOfBirth) {
         this.customerID = customerID;
         this.name = name;
-        this.phone = phone;
-        this.email = email;
+        setPhone(phone);
+        setEmail(email);
         this.password = password;
         this.dateOfBirth = dateOfBirth;
     }
@@ -68,7 +68,9 @@ public class Customer {
     }
 
     public void setEmail(String email) {
-        if (!Pattern.matches(EMAIL_REGEX, email)) throw new IllegalArgumentException("Invalid E-Mail ID entered : " + email);
+        if (!Pattern.matches(EMAIL_REGEX, email)) {
+            throw new IllegalArgumentException("Invalid E-Mail ID entered : " + email);
+        }
         this.email = email;
     }
 

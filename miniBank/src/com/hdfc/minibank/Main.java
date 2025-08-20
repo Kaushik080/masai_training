@@ -86,42 +86,44 @@ public class Main {
         }
     }
 
-    public static void registerCustomer(){
+    public static void registerCustomer() {
         System.out.println("\n===Customer Registration===");
 
-        System.out.println("Enter Customer ID");
-        String customerID = scanner.nextLine().trim();
-
-        if(customers.containsKey(customerID)){
-            System.out.println("Customer Already Exist");
-        }
-
-        System.out.println("Enter Name: ");
-        String name = scanner.nextLine().trim();
-
-        System.out.println("Enter Email: ");
-        String email = scanner.nextLine().trim();
-
-        System.out.println("Enter Mobile no.: ");
-        String phone = scanner.nextLine().trim();
-
-        System.out.println("Enter DOB in yyyy-mm-dd: ");
-        String dobStr = scanner.nextLine().trim();
-
-        LocalDate dateOfBirth = null;
         try {
-            dateOfBirth = LocalDate.parse(dobStr, dateFormatter);
+            System.out.print("Enter Customer ID: ");
+            String customerID = scanner.nextLine().trim();
+
+            if (customers.containsKey(customerID)) {
+                System.out.println(" Customer already exists.");
+                return;
+            }
+
+            System.out.print("Enter Name: ");
+            String name = scanner.nextLine().trim();
+
+            System.out.print("Enter Email: ");
+            String email = scanner.nextLine().trim();
+
+            System.out.print("Enter Mobile No.: ");
+            String phone = scanner.nextLine().trim();
+
+            System.out.print("Enter DOB (yyyy-MM-dd): ");
+            String dobStr = scanner.nextLine().trim();
+            LocalDate dateOfBirth = LocalDate.parse(dobStr, dateFormatter);
+
+            System.out.print("Enter Password: ");
+            String password = scanner.nextLine().trim();
+
+            Customer customer = new Customer(customerID, name, phone, email, password, dateOfBirth);
+
+            customers.put(customerID, customer);
+            System.out.println("✓ Customer registered successfully!");
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(" " + e.getMessage());
         } catch (Exception e) {
-            System.out.println("Invalid Date Formatter");
+            System.out.println("Invalid input: " + e.getMessage());
         }
-
-        System.out.println("Enter Password: ");
-        String password = scanner.nextLine().trim();
-
-        Customer customer = new Customer(customerID, name, phone, email, password, dateOfBirth);
-        customers.put(customerID, customer);
-        System.out.println("Customer Registered Successfully");
-
     }
 
     private static void createAccount(){
