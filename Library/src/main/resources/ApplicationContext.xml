@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="book1" class="org.example.library.Book">
+        <constructor-arg value="101"/>
+        <constructor-arg value="Spring in Action"/>
+        <constructor-arg value="Craig Walls"/>
+    </bean>
+
+    <bean id="book2" class="org.example.library.Book">
+        <constructor-arg value="102"/>
+        <constructor-arg value="Effective Java"/>
+        <constructor-arg value="Joshua Bloch"/>
+    </bean>
+
+    <bean id="member" class="org.example.library.Member">
+        <property name="memberId" value="M001"/>
+        <property name="name" value="John Doe"/>
+    </bean>
+
+    <bean id="library" class="org.example.library.Library">
+        <property name="name" value="City Central Library"/>
+        <property name="member" ref="member"/>
+        <property name="books">
+            <list>
+                <ref bean="book1"/>
+                <ref bean="book2"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

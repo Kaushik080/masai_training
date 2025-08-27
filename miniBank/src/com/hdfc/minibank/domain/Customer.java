@@ -13,7 +13,7 @@ public class Customer {
     private LocalDate dateOfBirth;
 
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
-    private static final String MOBILE_REGEX = "^[6-9]\\d{9}$";
+    private static final String MOBILE_REGEX = "^\\d{10}$";
 
     public Customer() {
     }
@@ -75,7 +75,9 @@ public class Customer {
     }
 
     public void setPhone(String mobile) {
-        if (!Pattern.matches(MOBILE_REGEX, mobile)) throw new IllegalArgumentException("Invalid Mobile Number Entered : " + mobile);
+        if (!Pattern.matches(MOBILE_REGEX, mobile)) {
+            throw new IllegalArgumentException("Invalid Mobile Number Entered : " + mobile);
+        }
         this.phone = mobile;
     }
 
