@@ -11,4 +11,5 @@ public interface EmployeeRepository extends JpaRepository {
      List<Employee> searchByName(String name);
      Double getAverageSalary();
      List<Employee> getAllEmails();
+     Employee findByEmail(String email);
 }
