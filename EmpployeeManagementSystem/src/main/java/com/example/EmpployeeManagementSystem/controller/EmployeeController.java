@@ -1,6 +1,11 @@
 package com.example.EmpployeeManagementSystem.controller;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.example.EmpployeeManagementSystem.model.Employee;
+import com.example.EmpployeeManagementSystem.service.EmployeeService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
@@ -11,7 +16,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/get")
-    public ReponseEntity<List<Employee>> getAllEmployees(){
+    public ResponseEntity<List<Employee>> getAllEmployees(){
         List<Employee> employees = employeeService.getAllEmployees();
         return ResponseEntity.ok(employees);
     }
