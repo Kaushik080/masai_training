@@ -17,17 +17,17 @@ public class Employee {
     private String department;
     private float Salary;
 
-    // Constructors
-    public Employee() {}
-
-    public Employee(Long id, String firstName, String lastName, String email, String department, float salary) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.department = department;
-        Salary = salary;
-    }
+//    // Constructors
+//    public Employee() {}
+//
+//    public Employee(Long id, String firstName, String lastName, String email, String department, float salary) {
+//        this.id = id;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//        this.department = department;
+//        Salary = salary;
+//    }
 
     // Getters and Setters
 

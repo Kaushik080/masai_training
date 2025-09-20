@@ -30,12 +30,12 @@ public class EmployeeController {
     @PostMapping("/update/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable long id ,@RequestBody Employee employee){
         Employee updateEmployee = employeeService.updateEmployee(id, employee);
-        return ResponseEntitiy.ok(updateEmployee);
+        return ResponseEntity.ok(updateEmployee);
     }
 
     @GetMapping("/get/{department}")
-    public ResponseEntity<List<Employee>> getEmployeeByDepartment(@PathVaariable String department){
-        List<Employee> employees = eemployeeService.getEmployeeByDepartment(department);
+    public ResponseEntity<List<Employee>> getEmployeeByDepartment(@PathVariable String department){
+        List<Employee> employees = employeeService.getEmployeeByDepartment(department);
         return ResponseEntity.ok(employees);
     }
 

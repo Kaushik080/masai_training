@@ -15,4 +15,6 @@ public interface EmployeeService {
     List<Employee> searchByName(String name);
     Double getAverageSalary();
     List<Employee> getAllEmails();
+
+    List<Employee> getEmployeeByDepartment(String department);
 }

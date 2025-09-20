@@ -60,4 +60,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     public List<Employee> getAllEmails() {
         return List.of();
     }
+
+    @Override
+    public List<Employee> getEmployeeByDepartment(String department) {
+        return List.of();
+    }
 }
