@@ -22,7 +22,10 @@ public class ConferenceRoom {
     private int capacity;
     private String location;
     @ElementCollection
-    @CollectionTable(name = "conference_room_equipment", joinColumns = @JoinColumn(name = "room_id"))
+    @CollectionTable(
+            name = "conference_room_equipment",
+            joinColumns = @JoinColumn(name = "room_id")
+    )
     @Column(name = "equipment")
     private List<String> equipmentList;
 

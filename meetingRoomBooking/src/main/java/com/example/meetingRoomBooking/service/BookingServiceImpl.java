@@ -42,7 +42,7 @@ public class BookingServiceImpl implements BookingService {
 
         List<ConferenceRoom> availableRooms = new ArrayList<>();
         for (ConferenceRoom room : rooms) {
-            List<Booking> overlapping = bookingRepository.findOverLappingBookings(room.getRoomId(), startTime, endTime);
+            List<Booking> overlapping = bookingRepository.findOverlappingBookings(room.getRoomId(), startTime, endTime);
             if (overlapping.isEmpty()) {
                 availableRooms.add(room);
             }
@@ -64,7 +64,7 @@ public class BookingServiceImpl implements BookingService {
         }
 
         // Check if room is free for given time slot
-        List<Booking> overlappingBookings = bookingRepository.findOverLappingBookings(roomId, startTime, endTime);
+        List<Booking> overlappingBookings = bookingRepository.findOverlappingBookings(roomId, startTime, endTime);
         if (!overlappingBookings.isEmpty()) {
             throw new IllegalStateException("Room is already booked for the given time slot");
         }
@@ -97,6 +97,6 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public List<Booking> getBookingsForUser(String userId) {
-        return bookingRepository.findUserById(userId);
+        return bookingRepository.findByUserUserId(userId);
     }
 }

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id
-    private String userID;
+    private String userId;
     private String name;
     private String email;
 
