@@ -1,6 +1,5 @@
 # Use a base image with Java
-FROM openjdk:21-jdk-slim
-
+FROM openjdk:22-jdk-slim-bullseye
 # Set the working directory
 WORKDIR /app
 
